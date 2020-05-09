@@ -36,16 +36,16 @@ public class ReverseBetween_92 {
         return head;*/
         ListNode prevhead=new ListNode(0);
         prevhead.next=head;
-        ListNode prev=prevhead;
+        ListNode prev=prevhead,start;
         for (int i=1;i<m;i++){
             prev=prev.next;
         }
-        head=prev.next;
+        start=prev.next;
         for (int i=m;i<n;i++){
-            ListNode cur=head.next;
-            head.next=cur.next;
-            cur.next=prev.next;
-            prev.next=cur;
+            ListNode end=start.next;
+            start.next=end.next;
+            end.next=prev.next;
+            prev.next=end;
         }
         return prevhead.next;
     }
